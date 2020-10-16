@@ -1,0 +1,43 @@
+<app-template></app-template>
+<table mat-table [dataSource]="candidatos" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef> Nome </th>
+    <td mat-cell *matCellDef="let candidatos"> {{candidatos.nome}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="telefone">
+    <th mat-header-cell *matHeaderCellDef> Telefone </th>
+    <td mat-cell *matCellDef="let candidatos"> {{candidatos.telefone}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="urlLinkedin">
+    <th mat-header-cell *matHeaderCellDef> UrlLinkedin </th>
+    <td mat-cell *matCellDef="let candidatos"> {{candidatos.urlLinkedin}} </td>
+  </ng-container>
+
+
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="usuarioGithub">
+    <th mat-header-cell *matHeaderCellDef> UsuarioGithub </th>
+    <td mat-cell *matCellDef="let candidatos"> {{candidatos.usuarioGithub}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acao">
+    <th mat-header-cell *matHeaderCellDef> Ação </th>
+    <td mat-cell *matCellDef="let candidatos">
+      <button mat-raised-button color="primary" [routerLink]="['/atualizar-candidato', candidatos.id]">Editar</button>
+      <button mat-raised-button color="warn" (click)="removerCandidato(candidatos.id)">Deletar</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

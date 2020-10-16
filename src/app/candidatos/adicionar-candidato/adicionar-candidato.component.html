@@ -1,0 +1,22 @@
+<app-template></app-template>
+<form class="example-form" novalidate (ngSubmit)="salvar()" [formGroup]="candidatoForm" >
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Preencha o nome." formControlName="nome" />
+  </mat-form-field>
+  
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Preencha o telefone" formControlName="telefone" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Preencha o urlLinkedin" formControlName="urlLinkedin" [errorStateMatcher]="urlLinkedin" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Preencha a usuarioGithub " formControlName="usuarioGithub" />
+  </mat-form-field>
+  
+  <div class="example-button-row">
+    <button mat-raised-button type="submit" color="primary">Salvar</button>
+  </div>
+ </form>
